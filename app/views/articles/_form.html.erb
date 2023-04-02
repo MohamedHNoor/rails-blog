@@ -1,0 +1,25 @@
+<div class="mx-auto p-2" style="max-width: 800px;">
+<%= form_with model: article do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control form-control-lg" %>
+
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div class="mb-3"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.text_area :body, class: "form-control", rows: "3" %>
+
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div class="mb-3 warning"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
+</div>

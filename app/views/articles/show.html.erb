@@ -1,0 +1,22 @@
+<div class="card mx-auto mt-3" style="max-width: 800px">
+  <div class="card-header">
+    <h5 class="card-title"><%= @article.title %></h5>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= @article.body %></p>
+    <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info mx-3" %>
+    <%= link_to "Destroy", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+  </div>
+</div>
+
+<div class="card mx-auto mt-3" style="max-width: 800px">
+  <div class="card-header">
+    <h5 class="card-title">Comments</h5>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= render @article.comments %></p>
+  </div>
+</div>
+
+<h2 class="text-primary mt-3"style="text-align: center;">Add Comment:</h2>
+<%= render "comments/form" %>
